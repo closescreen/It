@@ -1,6 +1,5 @@
 module It
 
-include("./ifsome.jl")
 
 import Base.getindex
 
