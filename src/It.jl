@@ -139,6 +139,19 @@ println(wcmd::Cmd, iter) =
     print(wcmd, iter, printfunc=Base.println)
 
 
+"""Experimental!
+[3,4,5]|>pager
+
+Write iterator to tempname() and less() it
+"""
+function pager(itr)
+    tmp = tempname()
+    wio = open(tmp,"w")
+    itr|>Iter.println(wio)
+    close(wio)
+    less(tmp)
+    rm(tmp)
+end
 
 
 end # module
