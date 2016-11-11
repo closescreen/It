@@ -2,24 +2,6 @@ module It
 
 import Base.getindex
 
-"""
-[1,2,3] |> map(x->x+1)
-"""
-map(f::Function) = xs->Base.map(f,xs)
-map(f1::Function,f2::Function) = map( x->f2(f1(x)) )
-map(f1::Function,f2::Function,ff::Function...) = map(x->f2(f1(x)), ff...)
-
-
-
-"""
-    [1,2,3,4] |> filter(x->x<3) # [1,2]
-    [1,2,3,4] |> filter(x->x>1, x->x<4) # [2,3] - logical 'and'
-    
-"""
-filter(f::Function) = itr->Base.filter(f,itr)
-filter(f1::Function, f2::Function) = itr->filter( x->f1(x)&&f2(x), itr )
-filter(f1::Function, f2::Function, ff::Function...) = 
-    filter(x->f1(x)&&f2(x), ff)
 
 
 """
